@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "sender-api": "file:functions/sender-api"
+  }
+}
