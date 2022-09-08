@@ -4,20 +4,21 @@ jobs:
   Release-Firebase:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 'Checkout repo'
+        uses: actions/checkout@v3
       - name: 'Install submodules'
-      - run: |
+        run: |
           git submodule init
           git submodule update
       - name: 'Install node modules'
-      - run: |
+        run: |
           npm i
           cd functions
           npm i
           cd sender-api
           npm i
       - name: 'Setup firebase'
-      - run: |
+        run: |
           mkdir config
           cd config
           touch firebaseServiceAccountKey.json
