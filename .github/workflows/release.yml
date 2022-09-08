@@ -26,6 +26,8 @@ jobs:
           name: 'firebaseServiceAccountKey.json'
           json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           dir: '/config'
+      - name: 'Go back directory'
+        run: cd ../../
       - name: 'Deploy firebase functino'
         uses: w9jds/firebase-action@master
         with:
