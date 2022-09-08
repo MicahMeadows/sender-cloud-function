@@ -26,12 +26,9 @@ jobs:
           name: 'firebaseServiceAccountKey.json'
           json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           dir: '/config'
-      - name: Firebase Deployment
-        uses: sws2apps/firebase-deployment@v2.1.0
+      - name: 'Deploy firebase functino'
+        uses: w9jds/firebase-action@master
         with:
-          config: 'firebase.json'
-          function: true
-          hosting: true
-          project: 'Sender'
+          args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
