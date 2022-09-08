@@ -1,5 +1,8 @@
-name: Release Firebase
-on: [push]
+name: FunctionRelease
+# on: [push]
+on:
+  repository_dispatch:
+    types: [ FunctionRelease ]
 jobs:
   Release-Firebase:
     runs-on: ubuntu-latest
