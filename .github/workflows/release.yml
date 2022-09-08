@@ -1,6 +1,7 @@
 name: FunctionRelease
 # on: [push]
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [ FunctionRelease ]
 jobs:
