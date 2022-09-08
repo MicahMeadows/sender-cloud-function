@@ -3,7 +3,7 @@ name: FunctionRelease
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [ FunctionRelease ]
+    types: [ deploy-firebase ]
 jobs:
   Release-Firebase:
     runs-on: ubuntu-latest
