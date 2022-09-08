@@ -14,6 +14,8 @@ jobs:
           npm i
           cd sender-api
           npm i
+          ls
           mkdir config
           cd config
           touch firebaseServiceAccountKey.json
+          ls
