@@ -33,11 +33,17 @@ jobs:
       #     firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
       #     projectId: sender-76256
       #     channelId: live
-      - name: Deploy to Firebase
+      - name: Deploy function
         uses: sws2apps/firebase-deployment@main #consider using pin for dependabot auto update
         with:
           function: true
+          project: 'sender-76256' 
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy hosting
+        uses: sws2apps/firebase-deployment@main #consider using pin for dependabot auto update
+        with:
           hosting: true
-          project: 'sender-76256'
+          project: 'sender-76256' 
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
