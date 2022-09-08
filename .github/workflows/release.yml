@@ -19,6 +19,7 @@ jobs:
           npm i
       - name: 'Create config folder'
         run: |
+          cd functions/sender-api
           mkdir config
           pwd
       - name: 'Setup Firebase Service Account Key'
@@ -27,7 +28,7 @@ jobs:
         with:
           name: 'firebaseServiceAccountKey.json'
           json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-          dir: '/config'
+          dir: 'functions/sender-api/config'
       - name: 'Go back directory'
         run: cd ../../
       - name: 'Deploy firebase functino'
