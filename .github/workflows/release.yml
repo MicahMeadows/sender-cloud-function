@@ -10,13 +10,13 @@ jobs:
         run: |
           git submodule init
           git submodule update
-      # - name: 'Install node modules'
-      #   run: |
-      #     npm i
-      #     cd functions
-      #     npm i
-      #     cd sender-api
-      #     npm i
+      - name: 'Install node modules'
+        run: |
+          npm i
+          cd functions
+          npm i
+          cd sender-api
+          npm i
       - name: 'Create config folder'
         run: |
           cd functions/sender-api
@@ -29,8 +29,6 @@ jobs:
           name: 'firebaseServiceAccountKey.json'
           json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           dir: 'functions/sender-api/config'
-      - name: 'Go back directory'
-        run: cd ../../
       - name: 'Deploy firebase functino'
         uses: w9jds/firebase-action@master
         with:
