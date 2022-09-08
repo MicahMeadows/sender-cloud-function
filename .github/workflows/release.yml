@@ -18,7 +18,9 @@ jobs:
           cd sender-api
           npm i
       - name: 'Create config folder'
-        run: mkdir config
+        run: |
+          mkdir config
+          pwd
       - name: 'Setup Firebase Service Account Key'
         id: create-json
         uses: jsdaniell/create-json@1.1.2
