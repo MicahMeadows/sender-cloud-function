@@ -26,10 +26,16 @@ jobs:
           name: 'firebaseServiceAccountKey.json'
           json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           dir: '/config'
-      - name: 'Deploy to firebase'
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      # - name: 'Deploy to firebase'
+      #   uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: "${{ secrets.GITHUB_TOKEN }}"
+      #     firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
+      #     projectId: sender-76256
+      #     channelId: live
+      - name:  Deploy to Firebase
+        uses: w9jds/firebase-action@master
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
-          projectId: sender-76256
-          channelId: live
+            args: deploy --only functions, hosting
+        env:
+            FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
