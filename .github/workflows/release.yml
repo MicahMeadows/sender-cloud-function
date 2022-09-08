@@ -26,26 +26,12 @@ jobs:
           name: 'firebaseServiceAccountKey.json'
           json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           dir: '/config'
-      - name: 'Deploy'
-        run: firebase deploy
-      # - name: 'Deploy to firebase'
-      #   uses: FirebaseExtended/action-hosting-deploy@v0
-      #   with:
-      #     repoToken: "${{ secrets.GITHUB_TOKEN }}"
-      #     firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
-      #     projectId: sender-76256
-      #     channelId: live
-      # - name: Deploy function
-      #   uses: sws2apps/firebase-deployment@main #consider using pin for dependabot auto update
-      #   with:
-      #     function: true
-      #     project: 'sender-76256' 
-      #   env:
-      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      # - name: Deploy hosting
-      #   uses: sws2apps/firebase-deployment@main #consider using pin for dependabot auto update
-      #   with:
-      #     hosting: true
-      #     project: 'sender-76256' 
-      #   env:
-      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Firebase Deployment
+        uses: sws2apps/firebase-deployment@v2.1.0
+        with:
+          config: 'firebase.json'
+          function: true
+          hosting: true
+          project: 'Sender'
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
