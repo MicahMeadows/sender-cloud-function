@@ -10,13 +10,13 @@ jobs:
         run: |
           git submodule init
           git submodule update
-      - name: 'Install node modules'
-        run: |
-          npm i
-          cd functions
-          npm i
-          cd sender-api
-          npm i
+      # - name: 'Install node modules'
+      #   run: |
+      #     npm i
+      #     cd functions
+      #     npm i
+      #     cd sender-api
+      #     npm i
       - name: 'Create config folder'
         run: |
           cd functions/sender-api
