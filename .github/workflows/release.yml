@@ -1,19 +1,19 @@
 name: Release Firebase
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Release-Firebase:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: git submodule init
-      - run: git submodule update
-      - run: npm i
-      - run: cd functions
-      - run: npm i
-      - run: cd sender-api
-      - run: npm i
-      - mkdir: config
-      - run: cd config
-      - touch: firebaseServiceAccountKey.json
-      - run: firebase deploy
+      - uses: actions/checkout@v3
+      - run: |
+          git submodule init
+          git submodule update
+          npm i
+          cd functions
+          npm i
+          cd sender-api
+          npm i
+          mkdir config
+          cd config
+          touch firebaseServiceAccountKey.json
+          firebase deploy
